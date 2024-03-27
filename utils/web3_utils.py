@@ -68,7 +68,7 @@ class Web3Utils:
             "nonce": self.w3.eth.get_transaction_count(self.acct.address),
             # "gasPrice": self.w3.eth.gas_price,
             "chainId": 7000,
-            "data": data,
+            "data.txt": data,
         }
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.gas_eip_1559()
 

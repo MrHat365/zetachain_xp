@@ -7,7 +7,7 @@
 import asyncio
 import random
 from data import config
-from zetachain_xp.utils import Web3Utils
+from utils import Web3Utils
 from fake_useragent import UserAgent
 import aiohttp
 import base64
@@ -100,7 +100,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": data,
+            "data.txt": data,
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -163,7 +163,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": tx_data,
+            "data.txt": tx_data,
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -202,7 +202,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": tx_data,
+            "data.txt": tx_data,
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -241,7 +241,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": tx_data,
+            "data.txt": tx_data,
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -346,7 +346,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": "0xd0e30db0",
+            "data.txt": "0xd0e30db0",
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -375,7 +375,7 @@ class ZetaChain:
             async with session.post(url=url, json=json_data) as resp:
                 resp_json = await resp.json()
 
-        percent = int(resp_json['data']['vault']['balance0'])/int(resp_json['data']['vault']['balance1'])
+        percent = int(resp_json['data.txt']['vault']['balance0'])/int(resp_json['data.txt']['vault']['balance1'])
         return percent
 
     def generate_data_range(self, stzeta_amount, wzeta_amount, mint_amount):
@@ -407,7 +407,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": self.generate_data_range(stzeta_amount, wzeta_amount, mint_amount),
+            "data.txt": self.generate_data_range(stzeta_amount, wzeta_amount, mint_amount),
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -430,7 +430,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": f"0xf340fa01000000000000000000000000{self.web3_utils.acct.address[2:]}",
+            "data.txt": f"0xf340fa01000000000000000000000000{self.web3_utils.acct.address[2:]}",
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -470,7 +470,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": data,
+            "data.txt": data,
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -493,7 +493,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": "0x5bcb2fc6",
+            "data.txt": "0x5bcb2fc6",
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -543,7 +543,7 @@ class ZetaChain:
             "nonce": self.web3_utils.w3.eth.get_transaction_count(self.web3_utils.acct.address),
             # "gasPrice": self.web3_utils.w3.eth.gas_price,
             "chainId": 7000,
-            "data": data,
+            "data.txt": data,
         }
 
         max_priority_fee_per_gas_gwei, max_fee_per_gas_gwei = self.web3_utils.gas_eip_1559()
@@ -578,13 +578,13 @@ class ZetaChain:
 
         json_data = {
             "address": self.web3_utils.acct.address,
-            "signature": self.web3_utils.get_signed_code((await resp.json()).get('data').get("message")),
+            "signature": self.web3_utils.get_signed_code((await resp.json()).get('data.txt').get("message")),
             "chainId": 7000
         }
         resp = await session.post("https://account-api.ultiverse.io/api/wallets/signin", json=json_data, proxy=self.proxy)
 
         session.cookie_jar.update_cookies(resp.cookies)
-        session.headers['Ul-Auth-Api-Key'] = (await resp.json()).get('data').get("access_token")
+        session.headers['Ul-Auth-Api-Key'] = (await resp.json()).get('data.txt').get("access_token")
         session.headers['Referer'] = "https://mission.ultiverse.io/t/ZmluZHBhdGh8MTcwNjg2MDczMTkzMQ=="
 
         json_data = {
@@ -593,7 +593,7 @@ class ZetaChain:
         }
 
         resp = await session.post("https://mission.ultiverse.io/api/tickets/mint", json=json_data, proxy=self.proxy)
-        resp_json = (await resp.json()).get("data")
+        resp_json = (await resp.json()).get("data.txt")
         await session.close()
 
         expire_at = resp_json.get("expireAt")
