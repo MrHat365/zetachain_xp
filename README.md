@@ -29,6 +29,38 @@ ZETA是比较严格查询女巫的，所以转账尽可能避免一对多或者�
 
 `wallets.txt`是需要填写转出目标地址列表，一行一个。
 
+## 👨‍💻更新功能 [OKX注册地址](https://www.ouxyi.style/join/TOTHEMOON25)
+更新交易所提现-划转功能。
+
+- 更新交易所提现时候出现的异常处理
+- 更新钱包多余资产转回交易所功能
+
+参数说明：
+```shell
+交易所私钥配置参数：
+API_KEY = ''  # 交易所api key
+SECRET = ''  # 交易所 api secret
+PASSPHRASE = ''  # okx交易所 passphrase
+
+从交易所转出，公链配置参数
+TOKEN = 'ZETA'  # token种类
+NETWORK = 'ZetaChain'  # 公链名称
+
+AMOUNT = 2  # 需要转出的zeta数量，okx当前默认为2个，也可以自定义
+
+划转延时配置参数
+MIN_DELAY = 20  # token提现最小延时时间
+MAX_DELAY = 50  # token提现最大延时时间
+
+多余资产转回交易所配置参数
+RESERVED_AMOUNT = 0.1  # 钱包需要保留的token数量
+EXCHANGE_ADDRESS = ""  # 需要转到交易所的充币地址
+
+```
+新增`data/temp_wallets.txt`文件，辅助交易所转账，可以将需要转回交易所的钱包私钥放置在对应的文件中，方便自动转回。
+
+### 注意：okx提现需要添加地址白名单，这里只能手动添加。无法自动完成。添加玩白名单之后才可以进行脚本操作。
+
 
 
 ### 🐹 更多其他脚本请关注首页
