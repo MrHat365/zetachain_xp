@@ -6,7 +6,7 @@
 """
 from data import config
 from zeta_chain import ZetaChain
-from zetachain_xp.utils import random_line, logger
+from utils import random_line, logger
 import asyncio
 
 
